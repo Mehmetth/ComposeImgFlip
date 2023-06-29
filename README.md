@@ -17,7 +17,7 @@ ImgFlip Compose App is an application written by considering MVVM architecture, 
     <tr>
     <td>Home Screen 1</td>
     <td>Home Screen 2</td>
-    <td>Detail 1</td>
+    <td>Detail</td>
    </tr>
   <tr>
     <td><img src="https://github.com/Mehmetth/ComposeImgFlip/assets/18207490/a1256a99-97e4-4c1f-b795-36a31aea7007" width="100%"></td>
