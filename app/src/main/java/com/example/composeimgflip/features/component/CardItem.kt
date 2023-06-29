@@ -1,5 +1,7 @@
 package com.example.composeimgflip.features.component
 
+import android.util.Log
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,6 +13,8 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -30,6 +34,8 @@ fun CardItem(
     detailClick: (Memes) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val showShimmer = remember { mutableStateOf(true) }
+
     Card(
         modifier = modifier
             .fillMaxWidth()
@@ -50,13 +56,14 @@ fun CardItem(
                 model = memes.url,
                 contentDescription = "",
                 contentScale = ContentScale.Crop,
-                onSuccess = {},
+                onSuccess = { showShimmer.value = false },
                 modifier = Modifier
                     .size(200.dp)
                     .clip(RoundedCornerShape(15.dp))
+                    .background(shimmerBrush(targetValue = 1300f, showShimmer = showShimmer.value))
             )
             Text(
-                text = memes.name,
+                text = if (showShimmer.value) "" else memes.name,
                 style = TextStyle(
                     color = Color.White,
                     fontSize = 17.sp
@@ -68,6 +75,7 @@ fun CardItem(
                     .padding(5.dp)
                     .clip(RoundedCornerShape(15.dp))
                     .fillMaxWidth()
+                    .background(shimmerBrush(targetValue = 1300f, showShimmer = showShimmer.value))
             )
         }
     }
