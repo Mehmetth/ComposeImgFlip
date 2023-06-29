@@ -1,4 +1,4 @@
-package com.example.composeimgflip.ui.theme
+package com.example.composeimgflip.features.theme
 
 import androidx.compose.ui.graphics.Color
 

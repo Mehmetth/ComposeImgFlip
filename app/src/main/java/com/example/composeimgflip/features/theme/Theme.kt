@@ -1,4 +1,4 @@
-package com.example.composeimgflip.ui.theme
+package com.example.composeimgflip.features.theme
 
 import android.app.Activity
 import android.os.Build
