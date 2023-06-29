@@ -2,6 +2,7 @@ package com.example.composeimgflip.features.navigation
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
+import com.example.composeimgflip.common.toJson
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 
@@ -15,7 +16,9 @@ fun NavGraph() {
         navController = navController,
         startDestination = homeNavigationRoute,
     ) {
-        homeScreen()
+        homeScreen(navigateToDetail = {
+            navController.navigateToMemeDetail(it.toJson())
+        })
         detailScreen()
     }
 }
